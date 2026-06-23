@@ -66,7 +66,6 @@ Result: `installer\VideoDownloader-Setup.exe`
 ```
 .
 ├── build_system
-
       ├── build.bat                 # Build .exe (Nuitka)
       ├── build_installer_only.bat      # Build installer (Inno Setup)
       ├── downloader-installer.iss      # Inno Setup script
@@ -200,36 +199,38 @@ build_installer_only.bat
 
 ```
 .
-├── downloader.py                 # Точка входа
-├── build.bat                 # Сборка .exe (Nuitka)
-├── build_installer_only.bat      # Сборка установщика (Inno Setup)
-├── downloader-installer.iss      # Скрипт Inno Setup
-├── icon.ico                      # Иконка приложения
-├── ffmpeg.exe                    # FFmpeg (склеивание видео+аудио)
-├── ffprobe.exe                   # FFprobe (проверка потоков)
-├── vlc-3.0.23-win64.exe          # VLC (опционально, для HEVC)
-└── app/
-    ├── __init__.py
-    ├── config.py                 # Настройки (JSON, %APPDATA%)
-    ├── gui/
-    │   ├── __init__.py           # Re-exports App, main
-    │   ├── app.py                # Основной класс App и точка входа main()
-    │   ├── builders.py           # Построение виджетов интерфейса
-    │   ├── handlers.py           # Обработчики событий
-    │   ├── preview.py            # Превью видео
-    │   ├── settings.py           # Окно настроек
-    │   ├── queue.py              # Управление очередью
-    │   └── download.py           # Запуск загрузок
-    ├── core/
-    │   ├── __init__.py           # Публичный API ядра
-    │   ├── formats.py            # Построение format‑строк для yt-dlp
-    │   ├── download.py           # Логика скачивания
-    │   └── metadata.py           # Валидация URL, проверка хоста, место на диске
-    ├── i18n.py                   # Локализация (ru / en)
-    ├── queue_model.py            # Модель элемента очереди
-    ├── theme.py                  # Цветовые схемы (светлая/тёмная)
-    ├── tray.py                   # Системный трей
-    └── updater.py                # Проверка обновления yt-dlp
+├── build_system
+      ├── build.bat                 # Сборка .exe (Nuitka)
+      ├── build_installer_only.bat      # Сборка установщика (Inno Setup)
+      ├── downloader-installer.iss      # Скрипт Inno Setup
+      ├── icon.ico                      # Иконка приложения
+      ├── ffmpeg.exe                    # FFmpeg (склеивание видео+аудио) "Не включено!!!"
+      ├── ffprobe.exe                   # FFprobe (проверка потоков) "Не включено!!!"
+      ├── vlc-3.0.23-win64.exe          # VLC (опционально, для HEVC) "Не включено!!!"
+├── code
+    │   ├── downloader.py                 # Точка входа
+    ├── app/
+        ├── __init__.py
+        ├── config.py                 # Настройки (JSON, %APPDATA%)
+        ├── gui/
+        │   ├── __init__.py           # Re-exports App, main
+        │   ├── app.py                # Основной класс App и точка входа main()
+        │   ├── builders.py           # Построение виджетов интерфейса
+        │   ├── handlers.py           # Обработчики событий
+        │   ├── preview.py            # Превью видео
+        │   ├── settings.py           # Окно настроек
+        │   ├── queue.py              # Управление очередью
+        │   └── download.py           # Запуск загрузок
+        ├── core/
+        │   ├── __init__.py           # Публичный API ядра
+        │   ├── formats.py            # Построение format‑строк для yt-dlp
+        │   ├── download.py           # Логика скачивания
+        │   └── metadata.py           # Валидация URL, проверка хоста, место на диске
+        ├── i18n.py                   # Локализация (ru / en)
+        ├── queue_model.py            # Модель элемента очереди
+        ├── theme.py                  # Цветовые схемы (светлая/тёмная)
+        ├── tray.py                   # Системный трей
+        └── updater.py                # Проверка обновления yt-dlp
 ```
 
 ## Настройки
