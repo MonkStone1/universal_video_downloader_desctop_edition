@@ -65,36 +65,39 @@ Result: `installer\VideoDownloader-Setup.exe`
 
 ```
 .
-├── downloader.py                 # Entry point
-├── build.bat                 # Build .exe (Nuitka)
-├── build_installer_only.bat      # Build installer (Inno Setup)
-├── downloader-installer.iss      # Inno Setup script
-├── icon.ico                      # Application icon
-├── ffmpeg.exe                    # FFmpeg (video+audio muxing)
-├── ffprobe.exe                   # FFprobe (stream inspection)
-├── vlc-3.0.23-win64.exe          # VLC (optional, for HEVC)
-└── app/
-    ├── __init__.py
-    ├── config.py                 # Settings (JSON, %APPDATA%)
-    ├── gui/
-    │   ├── __init__.py           # Re-exports App, main
-    │   ├── app.py                # Main App class and entry point main()
-    │   ├── builders.py           # UI widget construction
-    │   ├── handlers.py           # Event handlers
-    │   ├── preview.py            # Video preview
-    │   ├── settings.py           # Settings window
-    │   ├── queue.py              # Queue management
-    │   └── download.py           # Download launching
-    ├── core/
-    │   ├── __init__.py           # Public core API
-    │   ├── formats.py            # Format string building for yt-dlp
-    │   ├── download.py           # Download logic
-    │   └── metadata.py           # URL validation, host check, disk space
-    ├── i18n.py                   # Localization (ru / en)
-    ├── queue_model.py            # Queue item model
-    ├── theme.py                  # Color schemes (light/dark)
-    ├── tray.py                   # System tray
-    └── updater.py                # yt-dlp update check
+├── build_system
+
+      ├── build.bat                 # Build .exe (Nuitka)
+      ├── build_installer_only.bat      # Build installer (Inno Setup)
+      ├── downloader-installer.iss      # Inno Setup script
+      ├── icon.ico                      # Application icon
+      ├── ffmpeg.exe                    # FFmpeg (video+audio muxing) "DONT INCLUDE!!!"
+      ├── ffprobe.exe                   # FFprobe (stream inspection) "DONT INCLUDE!!!"
+      ├── vlc-3.0.23-win64.exe          # VLC (optional, for HEVC) "DONT INCLUDE!!!"
+├── code
+    │   ├── downloader.py                 # Entry point
+    ├── app/
+        ├── __init__.py
+        ├── config.py                 # Settings (JSON, %APPDATA%)
+        ├── gui/
+        │   ├── __init__.py           # Re-exports App, main
+        │   ├── app.py                # Main App class and entry point main()
+        │   ├── builders.py           # UI widget construction
+        │   ├── handlers.py           # Event handlers
+        │   ├── preview.py            # Video preview
+        │   ├── settings.py           # Settings window
+        │   ├── queue.py              # Queue management
+        │   └── download.py           # Download launching
+        ├── core/
+        │   ├── __init__.py           # Public core API
+        │   ├── formats.py            # Format string building for yt-dlp
+        │   ├── download.py           # Download logic
+        │   └── metadata.py           # URL validation, host check, disk space
+        ├── i18n.py                   # Localization (ru / en)
+        ├── queue_model.py            # Queue item model
+        ├── theme.py                  # Color schemes (light/dark)
+        ├── tray.py                   # System tray
+        └── updater.py                # yt-dlp update check
 ```
 
 ## Settings
